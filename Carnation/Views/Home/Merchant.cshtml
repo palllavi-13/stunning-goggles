@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Merchant";
+}
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+<body style="background-image: url('https://wallpaperaccess.com/full/1675302.jpg'); color: white;background-size:cover;background-repeat:no-repeat;">
+    <h3 class="display-4" style="text-align:center">We Welcome you Mr./Mrs. @HttpContextAccessor.HttpContext.Session.GetString("username") ☺</h3>
+    <br />
+    <h4>Start selling Now !  <a href="@Url.Action("Create","Products")"><b>Sell</b></a> .</h4><br /><br /><br /><br /><br />
+    <h5>In business section you can manage your profile</h5>
+
+    <h5>Note: You can't buy as a merchant. If you want buy, sign in as a normal user</h5>
+    <br />
+    <h5>Thank you !</h5>
+</body>
+<br /><br />
+

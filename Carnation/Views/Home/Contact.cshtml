@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewData["Title"] = "Contact";
+}
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+<title>Contact Us!</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Contact Us!</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: lightgoldenrodyellow;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+            /* Add a hover effect if you want */
+            .fa:hover {
+                opacity: 0.7;
+            }
+
+        /* Set a specific color for each brand */
+
+        /* Facebook */
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        /* Twitter */
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+    <title>Our Team</title>
+</head>
+<body>
+    <main role="main">
+        <section class="jumbotron text-center" style="background-color:seagreen; color:white;">
+           
+            <div class="container">
+                <h1>Contact Our Team Members</h1>
+                <rect width="100%" height="100%" fill="#55595c" />
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Connect With Us!</text>
+
+            </div>
+        </section>
+        <div class="album py-5 bg-light">
+            <div class="container" style="background-color:greenyellow;color:black;">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4 shadow-sm">
+
+                            <div class="card-body" style="background-color:aquamarine;color:black;">
+                                <p class="card-text">
+                                    <h1 style="color:darkgreen">Follow And Like Our Pages</h1>
+                                </p>
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="fa fa-twitter"></a>Follow on Twitter</li>
+                                    <li><a href="#" class="fa fa-facebook"></a>Like on Facebook</li>
+                                    <li><a href="#" class="fa fa-instagram"></a>Follow Our Page On Instragram</li>
+                                    <li><a href="#" class="text-white"></a>Email me</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-2">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="~/images/pp.jpg" class="bd-placeholder-img card-img-top" width="70" height="225" /><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Mayank Bhardwaj </b>
+                                </p>
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-instagram"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="~/images/pu.jpg" class="bd-placeholder-img card-img-top" width="60" height="225" /><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Prashant Trivedi </b>
+                                </p>
+
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-instagram"></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-2">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="~/images/at.jpg" class="bd-placeholder-img card-img-top" width="80" height="225" /><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Shashank Thakur </b>
+                                </p>
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-instagram"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="~/images/mb.jpg" class="bd-placeholder-img card-img-top" width="100" height="225" /><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Pallavi Upadhyay </b>
+                                </p>
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-instagram"></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-2">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="~/images/st.jpg" class="bd-placeholder-img card-img-top" width="70" height="225" /><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Aayushi Tripathi </b>
+                                </p>
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-instagram"></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </main>
+</body>

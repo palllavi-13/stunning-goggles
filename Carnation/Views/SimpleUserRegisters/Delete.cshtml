@@ -1,0 +1,105 @@
+﻿@model Carnation.NewModels.SimpleUserRegister
+
+@{
+    ViewData["Title"] = "Delete";
+}
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div class="align-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: rgba(0,0,0,0.5) !important;top:0">
+        <a class="navbar-brand" href="@Url.Action("Index","Home")">Carnation</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" href="@Url.Action("Index","Home")">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="@Url.Action("Index","Products")">Buy Now</a>
+                <a class="nav-link" href="@Url.Action("Create","SimpleUserRegisters")">Sign Up</a>
+                <a class="nav-link" href="@Url.Action("Login","Account")">Login</a>
+                <a class="nav-link" href="@Url.Action("Create","Feedbacks")">Feedback</a>
+                @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "merchant" || HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+                {
+            <a class="nav-link" href="@Url.Action("Index","MerchantUserRegisters")">Business Account🔑</a>}
+                @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "simple" || HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+                {
+            <a class="nav-link" href="@Url.Action("Index","SimpleUserRegisters")">Business Account🔑</a>}
+                <a class="nav-link" href="@Url.Action("LogOut","Account")">LogOut</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<h1 class="display-4">Delete Profile</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Registeration Details</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pass)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pass)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedInfo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreatedInfo)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Suid" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to Profile</a>
+    </form>
+</div>

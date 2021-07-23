@@ -1,0 +1,143 @@
+﻿@model Carnation.NewModels.SimpleUserRegister
+
+@{
+    ViewData["Title"] = "Create";
+}
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<head>
+    <style>
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        .content {
+            position: relative;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            /*padding: 0px;*/
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<video autoplay @*muted*@ loop id="myVideo">
+    <source src="/video/Mazda RX7 FD Midnight Run Zhiyun Crane 3 Lab.mp4" type="video/mp4">
+</video>
+
+<div class="align-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: rgba(0,0,0,0.5) !important;top:0">
+        <a class="navbar-brand" href="@Url.Action("Index","Home")">Carnation</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" href="@Url.Action("Index","Home")">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="@Url.Action("Index","Products")">Buy Now</a>
+                <a class="nav-link" href="@Url.Action("Create","SimpleUserRegisters")">Sign Up</a>
+                <a class="nav-link" href="@Url.Action("Login","Account")">Login</a>
+                <a class="nav-link" href="@Url.Action("Create","Feedbacks")">Feedback</a>
+                @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "merchant" || HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+                {
+            <a class="nav-link" href="@Url.Action("Index","MerchantUserRegisters")">Business Account🔑</a>}
+                @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "simple" || HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+                {
+            <a class="nav-link" href="@Url.Action("Index","SimpleUserRegisters")">My Account🔑</a>}
+                <a class="nav-link" href="@Url.Action("LogOut","Account")">LogOut</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="content">
+
+
+    <h1 class="display-4" style="text-align:center">Sign Up Here  </h1>
+
+    <h6 style="text-align:center">Your Registeration is on the way !! We welcome you to carnation. 💖</h6>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            <div style="text-align:center">
+                <form asp-action="Create" style="text-align:center">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label" style="text-align:center"></label>
+                        <input asp-for="FirstName" class="form-control" style="text-align:center" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="text-align:center">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="text-align:center">
+                        <label asp-for="Gender" class="control-label"></label>
+                        @*<input asp-for="Gender" class="form-control" />*@
+                        <select class="custom-select" id="validationTooltip04" required asp-for="Gender">
+                            <option selected disabled value="">Choose...</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Trans</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="text-align:center">
+                        <label asp-for="Age" class="control-label"></label>
+                        <input asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="text-align:center">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="text-align:center">
+                        <label asp-for="Contact" class="control-label"></label>
+                        <input asp-for="Contact" class="form-control" />
+                        <span asp-validation-for="Contact" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="text-align:center">
+                        <label asp-for="UserName" class="control-label"> UserName </label>
+                        <input asp-for="UserName" class="form-control" />
+                        <small class="text-muted"> Note: Remember this for Login !!</small>
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="text-align:center">
+                        <label asp-for="Pass" class="control-label"> Password </label>
+                        <input type="password" asp-for="Pass" class="form-control" />
+                        <small class="text-muted"> Note: Remember this for Login !!</small>
+                        <span asp-validation-for="Pass" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="text-align:center">
+                        <input type="submit" value="Sign Up" class="btn btn-primary" />
+                    </div>
+                    <div class="d-flex justify-content-center links">
+                        Want to be a merchant?<a href="@Url.Action("Create","MerchantUserRegisters")">Sign Up as Merchant</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+
+}

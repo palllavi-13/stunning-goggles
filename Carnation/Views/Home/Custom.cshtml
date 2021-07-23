@@ -1,0 +1,162 @@
+﻿
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Jekyll v4.1.1">
+        <title>Custom</title>
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+        <!-- Bootstrap core CSS -->
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+        <!-- jQuery and JS bundle w/ Popper.js -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            h1 {
+                text-align: center;
+                text-decoration: 1px solid;
+            }
+
+
+            h2 {
+                font-display: block;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 3rem;
+            }
+
+            body {
+                background-color: lavenderblush;
+            }
+        </style>
+
+
+    </head>
+    <body>
+
+        <div class="align-top">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: rgba(0,0,0,0.5) !important;top:0">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" href="@Url.Action("Index","Home")">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="@Url.Action("Index","Products")">Buy Now</a>
+                        <a class="nav-link" href="@Url.Action("Create","SimpleUserRegisters")">Sign Up</a>
+                        <a class="nav-link" href="@Url.Action("Login","Account")">Login</a>
+                        <a class="nav-link" href="@Url.Action("Create","Feedbacks")">Feedback</a>
+                        <a class="nav-link" href="@Url.Action("Privacy","Home")">Privacy</a>
+                        <a class="nav-link" href="@Url.Action("AboutUs","Home")">AboutUs</a>
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "merchant" || HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+                        {
+                    <a class="nav-link" href="@Url.Action("Index","MerchantUserRegisters")">Business Account🔑</a>}
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "simple" || HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+                        {
+                    <a class="nav-link" href="@Url.Action("Index","SimpleUserRegisters")">My Account🔑</a>}
+                        <a class="nav-link" href="@Url.Action("LogOut","Account")">LogOut</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+        <div><h1>Welcome To Carnation</h1></div>
+
+        <div class="container marketing">
+            <div class="info">
+                <h1><b>Customize Car!!!</b></h1>
+                <p><i>A custom car is a passenger vehicle that has been either substantially altered to improve its performance, often by altering or replacing the engine and transmission; made into a personal "styling" statement, using paint work and aftermarket accessories to make the car look unlike any car as delivered from the factory; or some combination of both. A desire among some automotive enthusiasts in the United States is to push "styling and performance a step beyond the showroom floor - to truly craft an automobile of one's own.</i></p>
+            </div>
+            </br>
+
+
+
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading"><b> Get a custom paint job.</b> <span class="text-muted"><i>It’ll blow your mind</i></span></h2>
+                    <p class="lead">
+                        Your cars paint will create the first impression for bystanders who see your car. Wow them with an outstanding combination of a base color, an optional accent color, and amazing graphics.
+                        Design your interior and exterior to compliment each other for the best flow.
+                    </p>
+                </div>
+                <div class="col-md-5">
+                    <img class="bd-placeholder-img card-img-top" width="100" height="250" src="https://cdn.carbuzz.com/gallery-images/840x560/251000/500/251512.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#55595c" /></img>
+                </div>
+
+            </div>
+            </br>
+
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading"><b>Customize your Cars interior.</b> <span class="text-muted"><i>See for yourself</i></span></h2>
+                    <p class="lead">
+                        Customize your Car interior by adding bold colors like orange, green, purple, and blue, and classic white leather on the seat covers.
+                        Have your headliner covered, your seats re-wrapped, and you door panels recovered with an upgraded, bold fabric or leather for a refined upholstery look.
+                        <h5><b>Install custom lighting in your car.</b></h5> There are LED light kits available in nearly any color for accent lighting and as replacements for your interior car bulbs.
+
+                        Choose a color that matches your interior accents.
+
+
+                    </p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img class="bd-placeholder-img card-img-top" width="100" height="300" src="https://i1.wp.com/gominivan.com/wp-content/uploads/2019/07/Canva-Red-and-Black-Car-Interior-min.jpg?fit=1024%2C680&ssl=1" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#55595c" /></img>
+                </div>
+
+
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading"><b>Change your vehicle's wheels or tires.</b> <span class="text-muted"><i>Checkmate</i></span></h2>
+                    <p class="lead">Replacing your wheels and tires are a statement that can not only enhance your vehicles look but change how your vehicle operates. Low-profile tires can increase your control and steering while taller tires commonly used on trucks can aid in off-road traction and maneuverability..</p>
+                </div>
+                <div class="col-md-5">
+
+                    <img class="bd-placeholder-img card-img-top" width="100" height="250" src="https://static.dezeen.com/uploads/2019/06/michelin-airless-tyre-design_dezeen_2364_col_6-852x568.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#55595c" /></img>
+                </div>
+            </div>
+        </div>
+        </br>
+        </br>
+        <hr class="featurette-divider">
+
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>Carnation &copy; 2017-2020 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+
+
+
+        <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    </body>
+</html>

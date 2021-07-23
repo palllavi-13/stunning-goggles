@@ -1,0 +1,155 @@
+﻿@model IEnumerable<Carnation.NewModels.MerchantUserRegister>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<div class="align-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: rgba(0,0,0,0.5) !important;top:0">
+        <a class="navbar-brand" href="@Url.Action("Index","Home")">Carnation</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" href="@Url.Action("Index","Home")">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="@Url.Action("Index","Products")">Buy Now</a>
+                <a class="nav-link" href="@Url.Action("Create","SimpleUserRegisters")">Sign Up</a>
+                <a class="nav-link" href="@Url.Action("Login","Account")">Login</a>
+                <a class="nav-link" href="@Url.Action("Create","Feedbacks")">Feedback</a>
+                @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "merchant" || HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+                {
+            <a class="nav-link" href="@Url.Action("Index","MerchantUserRegisters")">Business Account🔑</a>}
+                @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "simple" || HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+                {
+            <a class="nav-link" href="@Url.Action("Index","SimpleUserRegisters")">My Account🔑</a>}
+                <a class="nav-link" href="@Url.Action("LogOut","Account")">LogOut</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<h1 class="display-4">My Merchant Profile</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Contact)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Pass)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.CreatedInfo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "merchant" && HttpContextAccessor.HttpContext.Session.GetString("username") == item.UserName)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedInfo)
+                    </td>
+                    <td>
+                        <a style="color:black" asp-action="Edit" asp-route-id="@item.Muid">Edit</a> |
+                        <a style="color:green" asp-action="Details" asp-route-id="@item.Muid">Details</a> |
+                        <a style="color:red" asp-action="Delete" asp-route-id="@item.Muid">Delete</a> |
+                    </td>
+                </tr>
+            }
+
+            else if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedInfo)
+                    </td>
+                    <td>
+                        <a style="color:black" asp-action="Edit" asp-route-id="@item.Muid">Edit</a> |
+                        <a style="color:green" asp-action="Details" asp-route-id="@item.Muid">Details</a> |
+                        <a style="color:red" asp-action="Delete" asp-route-id="@item.Muid">Delete</a> |
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>

@@ -1,0 +1,259 @@
+﻿
+@{
+
+}
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Compact Cars Display</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @@media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+</head>
+<body>
+    <div class="align-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: rgba(0,0,0,0.5) !important;top:0">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">Carnation</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" href="@Url.Action("Index","Home")">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="@Url.Action("Index","Products")">Buy Now</a>
+                    <a class="nav-link" href="@Url.Action("Create","SimpleUserRegisters")">Sign Up</a>
+                    <a class="nav-link" href="@Url.Action("Login","Account")">Login</a>
+                    <a class="nav-link" href="@Url.Action("SampleCars","Home")">Sedan Cars</a>
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "merchant" || HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+                    {
+                <a class="nav-link" href="@Url.Action("Index","MerchantUserRegisters")">Business Account🔑</a>}
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "simple" || HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+                    {
+                <a class="nav-link" href="@Url.Action("Index","SimpleUserRegisters")">My Account🔑</a>}
+                    <a class="nav-link" href="@Url.Action("LogOut","Account")">LogOut</a>
+                </div>
+            </div>
+        </nav>
+
+        <main role="main">
+
+            <section class="jumbotron text-center">
+                <div class="container">
+                    <h1>Compact Cars</h1>
+                    <p class="lead text-muted"><i>A love between a man and his car can only be understood by those who have felt it.</i></p>
+                    <p>
+                        <a href="SUVs.html" class="btn btn-primary my-2">SUVs</a>
+                        <a href="Sedan.html" class="btn btn-secondary my-2">Sedans</a>
+                    </p>
+                </div>
+            </section>
+
+            <div class="album py-5 bg-light">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://www.windshieldexperts.com/car-models/wp-content/uploads/2019/01/i10-grand-600x600.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Hyundai Grandi10"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Hyundai Grandi10</text></img>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Hyundai Grandi10 is a compact car which is the new and improved verison of its older verison
+                                        Hyundai i10 which now is more advanced and is compliant with all new BS6 Engine<br />
+                                        <b>Price Range:</b> 5,91,000 - 5,99,000<br />
+                                        <b>Engine Specs:</b> The Hyundai Grand i10 has 1 Petrol Engine on offer.
+                                        The Petrol engine is 1197 cc .
+                                        It is available with the Manual ...
+                                        Engine Displacement (cc): 1197
+                                        Seating Capacity: 5
+                                        Max Power (bhp@rpm): 81.86bhp@6000rpm
+                                        Fuel Tank Capacity: 43
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Learn More</button>
+                                        </div>
+                                        <small class="text-muted">Hyundai</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://imgd.aeplcdn.com/664x374/n/cw/ec/26742/swift-exterior-right-front-three-quarter-2.jpeg?q=85" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Suzuki Swift"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Suzuki Swift</text></img>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Suzuki swift is a compact car with great features, design, and comfort and is very value for money and compliant with
+                                        latest BS6 engine.<br />
+                                        <b>Price Range:</b> 5,18,0000 - 8,02,000<br />
+                                        <b>Engine Specs:</b> Engine & Transmission.
+                                        Fuel Type, Petrol.
+                                        Max Power, 83 bhp @@ 6000 RPM.
+                                        Engine Displacement: 1197 cc
+                                        Power: 83 bhp @@ 6000 RPM
+                                        Fuel Type: Petrol
+                                        Torque: 115 Nm @@ 4000 RPM
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">
+                                                Learn More
+                                            </button>
+                                        </div>
+                                        <small class="text-muted">Maruti&Suzuki</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://imgd.aeplcdn.com/0x0/n/cw/ec/32597/tata-altroz-right-front-three-quarter20.jpeg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Tata Altroz"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Tata Altroz</text></img>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Tata Altroz is a fantastic Car in the segment with excellent in performance and features with Highest Safety standards and Best in Mileage. <br />
+                                        <b>Price Range:</b> 5,44,000 - 8,95,000<br />
+                                        <b>Engine Specs:</b>The Diesel engine is 1497 cc while the Petrol engine is 1199 cc . It is available with the Manual transmission. Depending upon the variant and fuel type the Altroz ...
+                                        Engine Displacement (cc): 1497
+                                        Seating Capacity: 5
+                                        Max Power (bhp@rpm): 88.76bhp@4000rpm
+                                        Fuel Tank Capacity: 37
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Learn More</button>
+                                        </div>
+                                        <small class="text-muted">Tata</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://s7g10.scene7.com/is/image/volkswagenag/Volkswagen-Polo-3?Zml0PWNyb3AsMSZmbXQ9anBnJnFsdD03OSZ3aWQ9ODAwJmhlaT00NTAmYWxpZ249MC4wMCwwLjAwJmRhMTk=" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Polo"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Volkswagen Polo</text></img>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Polo is a compact car with great design and optimum features and the best build quality in its segment and
+                                        ofcourse with the BS6 Compliant Volkswagen engine sums it up as a perfect compact car and one of the best in its segment.<br />
+                                        <b>Price Range:</b> 5,87,0000 - 9,67,000<br />
+                                        <b>Engine Specs:</b> The Volkswagen Polo has 1 Petrol Engine on offer. The Petrol engine is 999 cc . It is available with the Manual & Automatic ...
+                                        Engine Displacement (cc): 999
+                                        Fuel Tank Capacity: 45
+                                        Seating Capacity: 5
+                                        Max Power (bhp@rpm): 108.6@5000-5500rpm
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Learn More</button>
+                                        </div>
+                                        <small class="text-muted">Volkswagen</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://auto.economictimes.indiatimes.com/files/retail_files/punto-evo-1504015893-prod-var.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Fiat Punto"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Fiat Punto</text></img>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Fiat Punto is a compact car with the most powerfull engine in its segment which comes with whopping 150 ps power and makes it
+                                        a perfect fit for racing sport enthusiasts.<br />
+                                        <b>Price Range:</b> 4,92,0000 - 7,47,000<br />
+                                        <b>Engine Specs:</b> The Fiat Punto EVO has 1 Diesel Engine and 1 Petrol Engine on offer. The Diesel engine is 1248 cc while the Petrol ...
+                                        Engine Displacement (cc): 1172
+                                        Fuel Tank Capacity: 45
+                                        Max Power (bhp@rpm): 67bhp@6000rpm
+                                        Seating Capacity: 5
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Learn More</button>
+                                        </div>
+                                        <small class="text-muted">Fiat</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=http%3A%2F%2Fcms.haymarketindia.net%2Fmodel%2Fuploads%2Fmodelimages%2Fford-figo-new.jpg&h=578&w=872&c=1" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Ford Figo"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Ford Figo</text></img>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Figo is a compact car with great design, and comfort and is one of the most value for money car in its
+                                        segment and has a BS6 Compliant ford engine which adds more to its value. <br />
+                                        <b>Price Range:</b> 5,49,0000 - 8,15,000<br />
+                                        <b>Engine Specs:</b> The Diesel engine is 1499 cc while the Petrol engine is 1194 cc . It is available with the Manual transmission. Depending upon the variant and fuel type the Figo ...
+                                        Engine Displacement (cc): 1499
+                                        Seating Capacity: 5
+                                        Max Power (bhp@rpm): 98.96bhp@3750rpm
+                                        Fuel Tank Capacity: 40
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Learn More</button>
+                                        </div>
+                                        <small class="text-muted">Ford</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+        </main>
+
+        <footer class="text-muted">
+            <div class="container">
+                <p class="float-right">
+                    <a href="#">Back to top</a>
+                </p>
+
+
+            </div>
+        </footer>
+        <br />
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+        <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+        </body>
+</html>
+

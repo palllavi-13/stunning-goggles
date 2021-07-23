@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            html, body {
+                background-image: url("/images/template.jpg");
+                backdrop-filter: brightness(50%);
+                color: aliceblue;
+                background-size: cover;
+            }
+        </style>
+  </head>
+
+<body>
+    <div class="align-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: rgba(0,0,0,0.5) !important;top:0">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">Carnation</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" href="@Url.Action("Index","Home")">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="@Url.Action("Index","Products")">Buy Now</a>
+                    <a class="nav-link" href="@Url.Action("Create","SimpleUserRegisters")">Sign Up</a>
+                    <a class="nav-link" href="@Url.Action("Login","Account")">Login</a>
+                    <a class="nav-link" href="@Url.Action("Create","Feedbacks")">Feedback</a>
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "merchant" || HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+                    {
+                <a class="nav-link" href="@Url.Action("Index","MerchantUserRegisters")">Business Account🔑</a>}
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "simple" || HttpContextAccessor.HttpContext.Session.GetString("usertype") == "admin")
+                    {
+                <a class="nav-link" href="@Url.Action("Index","SimpleUserRegisters")">My Account🔑</a>}
+                    <a class="nav-link" href="@Url.Action("LogOut","Account")">LogOut</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <h1 class="display-4">Privacy</h1>
+    <div  style="background-color: rgba(0,0,0,0.5) !important">
+        <p><pre style="color:aliceblue">
+    All information received by us from your registration on business-standard.com or other digital products of Business Standard will be used by Business Standard in accordance with our Privacy Policy. Kindly read the below mentioned details.
+
+    On registration, we expect you to provide Business Standard with an accurate and complete information of the compulsory fields. We also expect you to keep the information secure, specifically access passwords and payment information. Kindly update the information periodically to keep your account relevant. Business Standard will rely on any information you provide to us.
+
+    Each registration is for a single user only. On registration, you will choose a user name and password ("ID"). You are not allowed to share your ID or give access to your account to anyone else. Business Standard Premium subscription does not allow multiple users on a network or within an organization to use the same ID.
+
+    On knowledge, Business Standard may cancel or suspend your access to Business Standard premium services if it comes across you sharing your personal access without further obligation to you.
+
+    You are responsible for all the use of business-standard.com premium service made by you or anyone else using your ID and for preventing unauthorised use of your ID. If you believe there has been any breach of security such as the disclosure, theft or unauthorised use of your ID or any payment information, you must notify Business Standard immediately by e-mailing us at carnation/feedback We recommend that you do not select an obvious user password (such as your name) and that you change it regularly.
+
+    If you provide Busines Standard with an email address that will result in any messages Business Standard may send you being sent to you via a network or device operated or owned by a third party (e.g. your employer or college) then you promise that you are entitled to receive those messages. To ensure email's land in your inbox, you will add the bsmail receipt id to your safe list. You also agree that Business Standard may stop sending messages to you without notifying you.
+
+    Important - Kindly note:-
+
+    (A) When you participate and choose to subscribe to joint content subscription offers that Business Standard partners with; your email id, access password and entered personal information will be shared with the participating content partner brand via an encrypted server to server protocol. This sharing is to facilitate your seamless access across the partner brand's platform. Once you login to the partner brand's platform, specific terms and privacy policies of the partner brand (mentioned on its website) will apply.
+
+    (B) Joint offers including special price offers are generally limited to new users on the partner sites. Clubbed Offers on partner sites will not be available to you should your email id be registered with the partner website.
+
+    You are advised to study the offer before you subscribe.
+
+    Merely subscribing to such a joint offer does not make you eligible to gain access to the partner platform. Business Standard does not take responsibility of providing you with an access on the partner site for existing users/subscribers of these sites.
+
+    (C) When you subscribe to joint offers supported by brands; specific brands would ask you to share personal or private information in lieu of a value that the brand extends. By participating in such offers you implicitly and by confirming the terms of the offer you agree to share your registration information and personal data with the concerned brand. The brand or its associates may use this personal information to contact you with their promotional offers. Further by participating to such offers your will be additionally governed by the privacy policy and terms and conditions of the concerned brand. You are advised to go through them carefully before you decide to opt in.
+
+    As a registered user of or subscriber to business-standard.com you may choose to "Remember me" log in feature that enables you to be logged in automatically to business-standard.com whenever you visit business-standard.com without having to manually log in each time. We recommend that you do not enable this feature on any computer that is or may be used by anyone other than you in order to prevent unauthorized access by third parties to both your subscription details and features of business-standard.com personal to you.
+</pre></p>
+    </div>
+    <br />
+
+</body>
+
